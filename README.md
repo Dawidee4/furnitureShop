@@ -1,6 +1,5 @@
+#Furniture shop site (React+Node.js+MongoDB)
 
-##Furniture shop site (React+Node.js+MongoDB)
-
-Based on react project apps by John Smilga
+##Based on react project apps by John Smilga
 
 Just a little bigger project made in react with backend

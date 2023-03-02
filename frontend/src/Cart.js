@@ -2,13 +2,14 @@ import { useState, useEffect, useContext } from "react";
 import Breadcrumbs from "./Breadcrumbs";
 import Navbar from "./Navbar";
 import { CartContext } from "./CartContext";
+import { Link } from 'react-router-dom'
 import './Cart.css'
 export default function Cart(){
 
-    const {cartData} = useContext(CartContext)
+    const {cartData, setCartData} = useContext(CartContext)
 
-    const [products, setProducts] = useState([
-        cartData.map(element=>{
+    function mapData(){
+        var data=cartData.map(element=>{
             return <div className="cart-product" key={element.key}>
                 <img src={element.image}/>
                 <span>{element.price}</span>
@@ -16,27 +17,32 @@ export default function Cart(){
                 <span>${element.counter*element.price}</span>
                 </div>
         })
-    ])
+        return data
+    }
 
-    const [totalPrice, setTotalPrice] = useState()
+
+    const [products, setProducts] = useState([mapData()])
+
+    const [totalPrice, setTotalPrice] = useState(0)
 
     function handleSetTotalPrice(){
         let price=0
-        price=parseInt(price)
+        
+        cartData.forEach(element=>{
+            price+=parseInt(element.price*element.counter)
+        })
 
-        price+=cartData.map(element=>parseInt(element.price*element.counter))
-        console.log(price)
-        // console.log(products)
-        setTotalPrice(()=>price)
+        setTotalPrice(()=>Math.round(price))
     }
+
+    useEffect(()=>{
+        setProducts(()=>mapData())
+    },[cartData])
 
     useEffect(()=>{
         handleSetTotalPrice()
     },[products])
 
-    useEffect(()=>{
-        // console.log(totalPrice)
-    },[totalPrice])
     return(
         <div className="cart">
             <Navbar/>
@@ -52,15 +58,15 @@ export default function Cart(){
                     {products}
                 </div>
                 <div className="cart-buttons">
-                    <input type="button" value="Continue Shopping"/>
-                    <input type="button" value="Clear Shopping Cart"/>
+                    <Link to='/products'><input type="button" value="Continue Shopping" /></Link>
+                    <input type="button" value="Clear Shopping Cart" onClick={()=>setCartData(()=>[])}/>
                 </div>
                 <div className="cart-order">
                     <div className="inline">
-                        <span>Subtotal :</span><span>$7556.43</span>
+                        <span>Subtotal :</span><span>${totalPrice}</span>
                     </div>
                     <div className="inline">
-                        <span>Shipping Fee :</span><span>$5.43</span>
+                        <span>Shipping Fee :</span><span>$0</span>
                     </div>
                     <div className="inline border-top">
                         <span>Order Total :</span><span>${totalPrice}</span>

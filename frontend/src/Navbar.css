@@ -46,12 +46,14 @@ nav>img{
 
 .nav-function .cart-icon{
     position: absolute;
-    top:5px;
+    top:0px;
     right:0;
     margin-right: -5px;
     width:20px;
     height:20px;
     background-color: #ab7a5f;
+    color:white;
+    font-weight: 500;
     border-radius: 50%;
 }
 .nav-function .cart-counter{
@@ -63,6 +65,7 @@ nav>img{
 .nav-functions{
     font-size:1.3rem;
     display: flex;
+    align-items: center;
     height:70%;
     gap:20px;
 }

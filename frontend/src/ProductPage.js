@@ -10,7 +10,6 @@ import { CartContext } from './CartContext.js'
 export default function ProductPage(props){
     let title = useParams().title
     title=title.replace(' ','%20')
-    console.log(title)
 
     const [data,setData] = useState({})
     const [counter, setCounter] = useState(1)
@@ -22,10 +21,6 @@ export default function ProductPage(props){
         useEffect(()=>{
             fetchData()
         },[]
-        )
-        useEffect(()=>{
-            console.log(data)
-        },[data]
         )
 
         function handleCounter(number){
@@ -45,9 +40,7 @@ export default function ProductPage(props){
             }
         ])
         }
-        useEffect(()=>{
-            console.log(cartData)
-        },[cartData])
+        
     return(
         <div className='product-page'>
             <Navbar/>

@@ -2,9 +2,10 @@ import Navbar from './Navbar.js'
 import BreadCrumbs from './Breadcrumbs.js'
 import './ProductPage.css'
 import { useParams } from 'react-router-dom'
-import { useEffect,useState } from 'react'
+import { useContext, useEffect,useState } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { CartContext } from './CartContext.js'
 
 export default function ProductPage(props){
     let title = useParams().title
@@ -31,6 +32,22 @@ export default function ProductPage(props){
             if(counter+number>0 && counter+number<11) setCounter(prev=>prev+number)
         }
 
+        const {cartData,setCartData} = useContext(CartContext)
+
+        function addToCart(){
+        setCartData(()=>[
+            ...cartData,{
+                image:data.image,
+                title:data.title,
+                price:data.price,
+                counter:counter,
+                key:data._id
+            }
+        ])
+        }
+        useEffect(()=>{
+            console.log(cartData)
+        },[cartData])
     return(
         <div className='product-page'>
             <Navbar/>
@@ -63,7 +80,7 @@ export default function ProductPage(props){
                         <span>{counter}</span>
                         <img src="http://127.0.0.1:3000/images/minus.svg" alt="" onClick={()=>handleCounter(-1)}/>
                         </div>
-                        <input type="button" value="ADD TO CART"/>
+                        <input type="button" value="ADD TO CART" onClick={addToCart}/>
                     </div>
                 </div>
             </div>

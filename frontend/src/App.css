@@ -1,0 +1,24 @@
+.breadcrumbs{
+  width:100%;
+  background-color: #eaded7;
+  color:#453227;
+  font-size:2rem;
+  font-weight: bold;
+  padding:70px 0px;
+}
+.breadcrumbs-link{
+  color:#795744;
+}
+.breadcrumbs .wrapper{
+  display: flex;
+  gap:10px;
+}
+
+.line{
+  width:80px;
+  height: 4px;
+  background-color:#ab7a5f;
+  margin: auto;
+  margin-top:10px;
+  margin-bottom:60px;
+}

@@ -1,0 +1,32 @@
+.about-section{
+    width:60%;
+    height:700px;
+    margin: auto;
+    display: flex;
+    gap:70px;
+    padding:100px 0px;
+}
+.about-section img{
+    object-fit: cover;
+    width:50%;
+    height:600px;
+    border-radius:5px;
+}
+.about-right{
+    width:35%;
+}
+
+.about-title{
+    font-size:2rem;
+    font-weight: 700;
+}
+.about-line{
+    margin-left: 0px;
+    margin-right:0px; 
+    margin-bottom:30px;
+}
+.about-description{
+    color:#617d98;
+    font-size:1rem;
+    line-height: 30px;
+}

@@ -127,6 +127,15 @@ export default function Products(){
             setCounter(()=>dataDisplayed.length)
         },[dataDisplayed])
 
+        const [displayBars,setBars] = useState(false)
+
+        useEffect(()=>{
+            var element=document.getElementById("display");
+            if(displayBars) element.classList.add("display-bars");
+            else element.classList.remove("display-bars")
+            console.log(element)
+        },[displayBars])
+
     return(
     <main className="products">
         <Navbar />
@@ -175,10 +184,10 @@ export default function Products(){
                 <div className="top-bar">
                     <div className="top-bar-boxes">
                         <div className="top-bar-box">
-                         box    
+                            <img src = "http://127.0.0.1:3000/images/grid.svg" alt="" onClick={()=>setBars(false)}/> 
                         </div>
                         <div className="top-bar-box">
-                         box    
+                            <img src = "http://127.0.0.1:3000/images/2bars.svg" alt="" onClick={()=>setBars(true)}/>    
                         </div>
                     </div>
                     <div className="top-bar-found">
@@ -192,7 +201,7 @@ export default function Products(){
                         Price (Lowest)    
                     </div>
                 </div>
-                <div className="products-displayed">
+                <div id="display" className="products-displayed">
                     {dataDisplayed}
                 </div>
             </div>

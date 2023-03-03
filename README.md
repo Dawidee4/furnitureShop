@@ -4,4 +4,6 @@
 
 Just a little bigger project made in react with backend
 
+you won't find beautiful css here 
+
 (not all functions made)

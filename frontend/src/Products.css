@@ -157,8 +157,13 @@ span{
 }
 
 @media screen and (max-width:1000px) {
+    
     .products-displayed{
+        background-color: red;
         grid-template-columns: 1fr;
+    }
+    .products-displayed .product{
+        height:350px;
     }
     .products > .wrapper{
         margin-top: 60px;

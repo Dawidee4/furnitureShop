@@ -145,7 +145,7 @@ span{
 }
 
 .display-bars{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
 }
 .display-bars .product{
     height:350px;
@@ -159,13 +159,14 @@ span{
 @media screen and (max-width:1000px) {
     
     .products-displayed{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .products-displayed .product{
         height:350px;
     }
     .products > .wrapper{
         margin-top: 60px;
+        width:80%;
         display: block;
         justify-content: space-between;
     }

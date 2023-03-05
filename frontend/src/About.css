@@ -13,7 +13,7 @@
     border-radius:5px;
 }
 .about-right{
-    width:35%;
+    width:100%;
 }
 
 .about-title{
@@ -29,4 +29,20 @@
     color:#617d98;
     font-size:1rem;
     line-height: 30px;
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        display: block;
+    }
+    .about-section img{
+        width:100%;
+    }
+    .about-right{
+        text-align: center;
+    }
+    .about-line{
+        margin:auto;
+        margin-bottom: 30px;
+    }
 }

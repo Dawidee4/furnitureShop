@@ -189,3 +189,30 @@ input{
 .section3-box-description{
     color:#5f4435;
 }
+
+@media screen and (max-width:1000px){
+.section-1{
+    width: 80%;
+}
+.section-1-left{
+    width:100%;
+}
+.section-1-right{
+    display: none;
+}
+.section-2-items{
+    width: 90%;
+}
+.section3-boxes{
+    height:200px;
+    margin-top:50px;
+}
+
+.section3-box{
+    height:100px;
+}
+
+.section3-box-description{
+    display: none;
+}
+}

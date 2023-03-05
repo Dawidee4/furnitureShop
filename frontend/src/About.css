@@ -34,6 +34,7 @@
 @media screen and (max-width:1000px){
     .about-section{
         display: block;
+        width:100%;
     }
     .about-section img{
         width:100%;

@@ -6,4 +6,4 @@ Just a little bigger project made in react with backend
 
 you won't find beautiful css here 
 
-(not all functions made)
+(not all functions made and not fully responsive for mobiles)

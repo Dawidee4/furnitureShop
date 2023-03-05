@@ -1,3 +1,7 @@
+.products{
+    width:100%;
+}
+
 .products > .wrapper{
     margin-top: 60px;
     display: flex;

@@ -14,18 +14,19 @@ nav{
 }
 
 nav>img{
-    height:3rem;
+    width:20%;
 }
 
 .nav-buttons{
     display: flex;
-    justify-items: center;
+    justify-content: space-around;
     align-items: center;
     gap:30px;
+    width:60%;
 }
 .nav-button{
     cursor: pointer;
-    padding:10px 20px;
+    padding:10px 0px;
     border-bottom: 2px solid white;
 }
 
@@ -66,12 +67,37 @@ nav>img{
     font-size:1.3rem;
     display: flex;
     align-items: center;
+    width:20%;
     height:70%;
     gap:20px;
 }
 
 @media screen and (max-width:1000px) {
     nav{
-        width:95%;
+        width:100%;
+        margin:0;
+    }
+    .nav-buttons{
+        gap:1%;
+        justify-content: space-around;
+    }
+    .nav-button{
+        padding:10px 0px;
+    }
+    .nav-functions{
+        font-size:1rem;
+        gap:5px;
+    }
+    .nav-function img{
+        width:1.5rem;
+    }
+    .nav-function .cart-counter{
+        font-size: 14px;
+        right: 2px;
+        top:-2px;
+    }
+    .nav-function .cart-icon{
+        width:15px;
+        height:15px;
     }
 }

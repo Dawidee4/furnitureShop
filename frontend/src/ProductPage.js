@@ -46,7 +46,9 @@ export default function ProductPage(props){
             <Navbar/>
             <BreadCrumbs page="Products / product-title"/>
             <div className='wrapper'>
-                <Link to='/products'><input className='productpage-button' type="button" value="BACK TO PRODUCTS"/></Link>
+                    <div className='button-holder'>
+                    <Link to='/products'><input className='productpage-button' type="button" value="BACK TO PRODUCTS"/></Link>
+                    </div>
                 <div className='panel'>
                     <div className='image-holder'>
                         <img src={'http://127.0.0.1:3000'+data.image} alt=""/>

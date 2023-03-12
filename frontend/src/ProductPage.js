@@ -6,26 +6,34 @@ import { useContext, useEffect,useState } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { CartContext } from './CartContext.js'
+import database from './database.js'
 
 export default function ProductPage(props){
     let title = useParams().title
+    let firstElement = database.filter(elem=>elem.title==title)[0] //FRONTEND
     title=title.replace(' ','%20')
+
 
     const [data,setData] = useState({})
     const [counter, setCounter] = useState(1)
-    //fetching one product data corresponding to title of page
-    async function fetchData(){
-        axios.get('http://127.0.0.1:3001/api/products/'+title)
-        .then(res=>setData(res.data))
-        }
-        useEffect(()=>{
-            fetchData()
-        },[]
-        )
+    //BACKEND fetching one product data corresponding to title of page
+    // async function fetchDataBackend(){
+    //     axios.get('http://127.0.0.1:3001/api/products/'+title)
+    //     .then(res=>setData(res.data))
+    //     }
+    //     useEffect(()=>{
+    //         fetchData()
+    //     },[]
+    //     )
 
-        function handleCounter(number){
-            if(counter+number>0 && counter+number<11) setCounter(prev=>prev+number)
-        }
+    function handleCounter(number){
+        if(counter+number>0 && counter+number<11) setCounter(prev=>prev+number)
+    }
+
+    function fetchData(){
+        setData(()=>firstElement) //FRONTEND
+    }
+    useEffect(()=>fetchData(),[])
 
         const {cartData,setCartData} = useContext(CartContext)
 

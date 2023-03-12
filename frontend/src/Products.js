@@ -4,6 +4,7 @@ import Product from "./Product.js"
 import { useState, useEffect } from "react";
 import "./Products.css";
 import axios from 'axios'
+import database from './database.js'
 export default function Products(){
 
     //Fetched data from backend api
@@ -12,29 +13,50 @@ export default function Products(){
     const [dataDisplayed, setDisplayedData] = useState([])
 
     //Fetching data from backend api
-    async function fetchData(){
-        axios.get("http://127.0.0.1:3001/api/products")
-                        .then(res=>{
-                            return res.data
-                        })
-                        .then(resdata=>{
+    // async function fetchDataBackend(){
+    //     axios.get("http://127.0.0.1:3001/api/products")
+    //                     .then(res=>{
+    //                         return res.data
+    //                     })
+    //                     .then(resdata=>{
                             
-                            const mappedData = resdata.map(element=>{
-                                return <Product 
-                                key={element._id}
-                                id={element._id}
-                                title={element.title}
-                                price={element.price}
-                                img={element.image}
-                                company={element.company}
-                                colors={element.colors}
-                                category={element.category}
-                                shipping={element.freeshipping}/>
-                            })
-                            setData(()=>mappedData)
-                            setDisplayedData(()=>mappedData)
-                        })
-      }
+    //                         const mappedData = resdata.map(element=>{
+    //                             return <Product 
+    //                             key={element._id}
+    //                             id={element._id}
+    //                             title={element.title}
+    //                             price={element.price}
+    //                             img={element.image}
+    //                             company={element.company}
+    //                             colors={element.colors}
+    //                             category={element.category}
+    //                             shipping={element.freeshipping}/>
+    //                         })
+    //                         setData(()=>mappedData)
+    //                         setDisplayedData(()=>mappedData)
+    //                     })
+    //   }
+
+
+    //FRONTEND DATA FETCHING FROM database.js FILE
+    function fetchData(){
+        const mappedData = database.map(element=>{
+                                        return <Product 
+                                        key={element._id}
+                                        id={element._id}
+                                        title={element.title}
+                                        price={element.price}
+                                        img={element.image}
+                                        company={element.company}
+                                        colors={element.colors}
+                                        category={element.category}
+                                        shipping={element.freeshipping}/>
+                                    })
+        setData(()=>mappedData)
+        setDisplayedData(()=>mappedData)
+    }
+    
+
     //Fetch data once on page load
     useEffect(()=>{
         fetchData()
@@ -133,7 +155,7 @@ export default function Products(){
             var element=document.getElementById("display");
             if(displayBars) element.classList.add("display-bars");
             else element.classList.remove("display-bars")
-            console.log(element)
+
         },[displayBars])
 
     return(

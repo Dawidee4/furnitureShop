@@ -48,11 +48,11 @@ export default function ProductPage(props){
             }
         ])
         }
-        
+
     return(
         <div className='product-page'>
             <Navbar/>
-            <BreadCrumbs page="Products / product-title"/>
+            <BreadCrumbs page={"Products / " + data.title}/>
             <div className='wrapper'>
                     <div className='button-holder'>
                     <Link to='/products'><input className='productpage-button' type="button" value="BACK TO PRODUCTS"/></Link>
